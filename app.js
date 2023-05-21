@@ -8,6 +8,7 @@ import dotenv from "dotenv";
 import userRoutes from "./routes/users.js";
 import ticketRoutes from "./routes/tickets.js";
 import config from "./config.js";
+import { ROUTE_CONSTS } from "./constants.js";
 
 dotenv.config();
 
@@ -20,8 +21,8 @@ app.use(bodyParser.json({ limit: "30mb", extend: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
-app.use("/api/users", userRoutes);
-app.use("/api/tickets", ticketRoutes);
+app.use(ROUTE_CONSTS.ROUTES.USER.BASE_PATH, userRoutes);
+app.use(ROUTE_CONSTS.ROUTES.TICKET.BASE_PATH, ticketRoutes);
 
 app.listen(config.port, () => {
   console.log(`Server started on port ${config.port}`);

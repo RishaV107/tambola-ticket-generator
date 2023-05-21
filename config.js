@@ -1,3 +1,7 @@
+import dotenv from "dotenv";
+
+dotenv.config();
+
 const config = {
   db: {
     host: process.env.DB_HOST,
@@ -6,7 +10,7 @@ const config = {
     database: process.env.DB_DATABASE,
   },
   port: process.env.PORT || 3030,
-  jwtSecret: "your_jwt_secret",
+  jwtSecret: process.env.JWT_SECRET || "some_secret",
 };
 
 export default config;
