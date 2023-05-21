@@ -21,7 +21,7 @@ app.use(bodyParser.json({ limit: "30mb", extend: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
-app.use(ROUTE_CONSTS.ROUTES.USER.BASE_PATH, userRoutes);
+app.use("/api/users", userRoutes);
 app.use(ROUTE_CONSTS.ROUTES.TICKET.BASE_PATH, ticketRoutes);
 
 app.listen(config.port, () => {
